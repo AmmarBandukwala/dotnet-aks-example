@@ -1,22 +1,28 @@
-[Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+# Quick Links
 
-az login
+[Kubernetes Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) </br>
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) </br>
+[Kubectl CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-az account set --subscription {GUID}
+# Command Line Sequences
 
-az aks get-credentials -g aks -n aks-demo
+1. az login
 
-kubectl get nodes
+2. az account set --subscription {GUID}
 
-kubectl apply -f .\deployment.yml
+3. az aks get-credentials -g aks -n aks-demo
 
-kubectl get deployment
+4. kubectl get nodes
 
-kubectl get pods
+5. kubectl apply -f .\deployment.yml
 
-az aks browse -g aks -n aks-demo
+6. kubectl get deployment
 
-(Must be executed before you can access the kubernetes dashboard)
+7. kubectl get pods
+
+8. az aks browse -g aks -n aks-demo
+
+## Execute the following sequence if Kubernetes Dashboard not loading correctly.
 
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 
