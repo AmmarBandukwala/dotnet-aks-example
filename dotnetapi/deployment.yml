@@ -1,0 +1,35 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dotnetapi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnetapi-pod
+  template:
+    metadata:
+      labels:
+        app: dotnetapi-pod
+    spec:
+      containers:
+        - name: dotnetapi-container
+          image: acrammar.azurecr.io/dotnetapi:28
+          resources:
+            limits:
+              memory: "512Mi"
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: dotnetapi-service
+spec:
+  selector:
+    app: dotnetapi-pod
+  ports:
+    - name: http-port
+      port: 8080
+      targetPort: 80
+  type: LoadBalancer
