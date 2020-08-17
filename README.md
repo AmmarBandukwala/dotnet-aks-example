@@ -2,7 +2,7 @@
 
 az login
 
-az account set --subscription 4e7bdebd-28bc-44b5-8546-ec5943a5649d
+az account set --subscription {GUID}
 
 az aks get-credentials -g aks -n aks-demo
 
